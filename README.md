@@ -1,73 +1,38 @@
-# Hytale Example Plugin
+# Hytale Plugin Template
 
-An example project that can build and run plugins for the game Hytale!
-
-> **⚠️ Warning: Early Access**    
-> The game Hytale is in early access, and so is this project! Features may be
-> incomplete, unstable, or change frequently. Please be patient and understanding as development
-> continues.
-
-## Introduction
-This project contains a Gradle project that can be imported into IDEA and used
-as the foundation for custom Hytale plugins. The template will add the Hytale
-server to your classpath and create a run configuration that can be used to
-run your plugin on the server. It can also be used to build a sharable JAR file
-that contains your plugin.
+Personal VS Code template for Hytale plugin development.
 
 ## Requirements
-Please ensure all the requirements are met before getting started.
 
-1. Download Hytale using the official launcher.
-2. Have Intellij IDEA installed. Community edition is fine.
-3. Download Java 25 and set it as the SDK in IDEA.
+- Hytale (Flatpak)
+- VS Code + Java Extension Pack
+- Java 25
 
-## Configuring Template
-It is important to configure the project before using it as a template. Doing
-this before importing the project will help avoid running into caching issues
-later on.
+## Quick Start
 
-### 1: Project Name
-Set the name of the project in `settings.gradle`. This should be the name of
-your plugin. We recommend capitalizing your project name and avoiding 
-whitespace and most special characters. This will be used as the base name for
-any files produced by Gradle, like the sharable JAR file.
+1. Update `settings.gradle` - Set project name
+2. Update `gradle.properties` - Set `maven_group` and `version`
+3. Update `src/main/resources/manifest.json` - Set plugin metadata and `Main` class
+4. Press `F5` to run and debug
+5. First run: `/auth login device` in server console
 
-### 2: Gradle Properties
-Review the properties defined in `gradle.properties`. You should change the 
-`maven_group` to match your project. You should also change the `version`
-property before making a new release, or set up CI/CD to automate it.
+## Development
 
-### 3: Manifest
-The manifest file provides important information about your plugin to Hytale.
-You should update every property in this file to reflect your project. The 
-most important property to set is `Main` which tells the game which class
-file to load as the entry point for your plugin. The file can be found at 
-`src/main/resources/manifest.json`.
+- **Run/Debug**: Press `F5` in VS Code
+- **Build JAR**: `./gradlew build` (output in `build/libs/`)
+- **Connect**: Local Server or `127.0.0.1` in Hytale client
+- **Debugging**: Set breakpoints, they work automatically
+- **Server files**: Everything runs in `./run/` (git-ignored)
 
-**This template has configured Gradle to automatically update the `Version` and
-`IncludesAssetPack` property to reflect your Gradle properties every time you 
-run the game in development, or build the plugin. This is a workaround to allow
-the in-game asset editor to be used when working on your project.**
+## Configuration
 
-## Importing into IDEA
-When opening the project in IDEA it should automatically create the
-`HytaleServer` run configuration and a `./run` folder. When you run the game it
-will generate all the relevant files in there. It will also load the default 
-assets from the games.
+The template auto-updates `Version` and `IncludesAssetPack` in manifest.json based on gradle.properties.
 
-**If you do not see the `HytaleServer` run configuration, you may need to open
-the dropdown or click `Edit Configurations...` once to unhide it.**
+Hytale path configured for Linux Flatpak in `build.gradle`. Change if needed:
+- Linux Flatpak: `~/.var/app/com.hypixel.HytaleLauncher/data/Hytale`
+- Windows: `~/AppData/Roaming/Hytale`
+- macOS: `~/Library/Application Support/Hytale`
 
-## Connecting to Server
-Once the server is running in IDEA you should be able to connect to 
-`Local Server` using your standard Hytale client. If the server does not show
-up automatically, add the IP as `127.0.0.1` manually.
+## Example Plugin
 
-## Verifying The Example Plugin
-You can verify the Example plugin has loaded by running the `/test` command 
-in game. It will print the name and version of your plugin. This is for 
-demonstration purposes, and should **NOT** be included in your final build.
-
-The example plugin also includes a recipe defined by an asset pack. This recipe
-allows you to craft 10 dirt into 1 dirt using the crafting window. This is also
-an example and should not be removed before you release the plugin.
+Includes example command `/test` and dirt crafting recipe. Remove before production.
