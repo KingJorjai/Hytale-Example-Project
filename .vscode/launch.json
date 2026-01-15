@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Hytale Server (Debug)",
+            "request": "launch",
+            "mainClass": "com.hypixel.hytale.Main",
+            "args": [
+                "--allow-op",
+                "--assets=${env:HOME}/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip"
+            ],
+            "classpath": [
+                "${env:HOME}/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Server/HytaleServer.jar"
+            ],
+            "cwd": "${workspaceFolder}/run",
+            "console": "integratedTerminal"
+        }
+    ]
+}
