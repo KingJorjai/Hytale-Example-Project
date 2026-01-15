@@ -1,0 +1,22 @@
+{
+    "Group": "net.jorjai.plugin",
+    "Name": "ExamplePlugin",
+    "Version": "0.0.1",
+    "Description": "An example plugin for HyTale!",
+    "Authors": [
+        {
+            "Name": "Jorjai"
+        }
+    ],
+    "Website": "jorjai.net",
+    "ServerVersion": "*",
+    "Dependencies": {
+        
+    },
+    "OptionalDependencies": {
+        
+    },
+    "DisabledByDefault": false,
+    "Main": "net.jorjai.plugin.ExamplePlugin",
+    "IncludesAssetPack": true
+}
